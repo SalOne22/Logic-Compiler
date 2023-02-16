@@ -1,97 +1,151 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --dark-color: #272930;
+  --darker-color: #1a1b1e;
+  --light-color: #ebeef3;
+  --gray-color: #5d5e61;
+  --brand-blue: #6336f7;
+  --brand-hover: #5131ba;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: "Raleway", sans-serif;
+  background-color: var(--dark-color);
+  color: var(--light-color);
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-#app {
-  max-width: 1280px;
+.container {
+  max-width: 1200px;
+  padding: 0 15px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+
+  outline: 0;
+  outline-offset: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.lcompiler {
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.lcompiler-title {
 }
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+.lcompiler-wrap {
+  display: flex;
+  gap: 30px;
 }
-
-.card {
-  padding: 2em;
+.lcompiler-form {
+  flex-basis: calc((100% - 30px) / 2);
 }
-
-.read-the-docs {
-  color: #888;
+.lcompiler-form > h2 {
+  margin-bottom: 15px;
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+.tt-label {
+  display: block;
   font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  font-size: 20px;
+  line-height: 120%; /* 24/20 */
+  margin-bottom: 5px;
+}
+.tt-textarea {
+  font-family: "Oxygen Mono", monospace;
+  font-size: 18px;
+  line-height: 111.111111%; /* 20/18 */
+  text-align: center;
+  padding: 15px 0;
+  width: 100%;
+  margin-bottom: 5px;
+  resize: vertical;
+  background-color: transparent;
+  color: inherit;
+  border: 2px solid var(--light-color);
+}
+.lgates {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 10px;
+  border: 2px solid var(--light-color);
+  margin: 0;
+  padding: 15px 10px;
+  margin-bottom: 10px;
+}
+.lgates-title {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 120%; /* 24/20 */
+  margin-bottom: 5px;
+}
+.lgates-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-basis: calc(100% / 3);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--gray-color);
   cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--gray-color);
+  border-radius: 25%;
+  width: 25px;
+  height: 25px;
+  color: transparent;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.lgates-checkbox:checked + .check {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+  border-color: transparent;
+}
+.lgates-checkbox:checked ~ .check-text {
+  color: var(--light-color);
+}
+.check-icon {
+  fill: currentColor;
+}
+.lcompiler-btn {
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+  padding: 15px 0;
+  background-color: var(--brand-blue);
+  color: var(--light-color);
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.lcompiler-btn:focus,
+.lcompiler-btn:hover {
+  background-color: var(--brand-hover);
+}
+
+.output-wrap {
+  flex-basis: calc((100% - 30px) / 2);
+}
+.output-wrap > h2 {
+  margin-bottom: 44px;
+}
+.output {
+  background-color: var(--darker-color);
+  padding: 25px 15px;
+  border: 2px solid var(--gray-color);
+}
+.output-text {
+  font-family: "Oxygen Mono", monospace;
+  text-align: justify;
+  font-size: 18px;
+  line-height: 133.333333%; /* 24/18 */
 }

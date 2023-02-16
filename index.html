@@ -2,12 +2,149 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Logic Compiler</title>
+    <link
+      rel="stylesheet"
+      href="node_modules/modern-normalize/modern-normalize.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxygen+Mono&family=Raleway:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="app"></div>
+    <main>
+      <section class="lcompiler container">
+        <h1 class="lcompiler-title">Logic Compiler</h1>
+
+        <div class="lcompiler-wrap">
+          <form class="lcompiler-form" id="logic-tt">
+            <h2>input</h2>
+            <label class="tt-label" for="truth-table">Truth table</label>
+            <textarea
+              class="tt-textarea"
+              name="truth-table"
+              cols="20"
+              rows="10"
+            >
+00:0
+01:1
+10:1
+11:0</textarea
+            >
+            <fieldset class="lgates">
+              <legend class="lgates-title">Logic Gates</legend>
+              <label class="lgates-label" for="and-gate">
+                <input
+                  class="lgates-checkbox visually-hidden"
+                  type="checkbox"
+                  name="logic-gates"
+                  value="and"
+                  id="and-gate"
+                  checked
+                />
+                <span class="check"
+                  ><svg class="check-icon" width="15" height="15">
+                    <use href="./icons.svg#icon-check"></use></svg
+                ></span>
+                <span class="check-text">AND</span>
+              </label>
+              <label class="lgates-label" for="not-gate">
+                <input
+                  class="lgates-checkbox visually-hidden"
+                  type="checkbox"
+                  name="logic-gates"
+                  value="not"
+                  id="not-gate"
+                  checked
+                />
+                <span class="check"
+                  ><svg class="check-icon" width="15" height="15">
+                    <use href="./icons.svg#icon-check"></use></svg
+                ></span>
+                <span class="check-text">NOT</span>
+              </label>
+              <label class="lgates-label" for="nand-gate">
+                <input
+                  class="lgates-checkbox visually-hidden"
+                  type="checkbox"
+                  name="logic-gates"
+                  value="nand"
+                  id="nand-gate"
+                  checked
+                />
+                <span class="check"
+                  ><svg class="check-icon" width="15" height="15">
+                    <use href="./icons.svg#icon-check"></use></svg
+                ></span>
+                <span class="check-text">NAND</span>
+              </label>
+              <label class="lgates-label" for="or-gate">
+                <input
+                  class="lgates-checkbox visually-hidden"
+                  type="checkbox"
+                  name="logic-gates"
+                  value="or"
+                  id="or-gate"
+                  checked
+                />
+                <span class="check"
+                  ><svg class="check-icon" width="15" height="15">
+                    <use href="./icons.svg#icon-check"></use></svg
+                ></span>
+                <span class="check-text">OR</span>
+              </label>
+              <label class="lgates-label" for="nor-gate">
+                <input
+                  class="lgates-checkbox visually-hidden"
+                  type="checkbox"
+                  name="logic-gates"
+                  value="nor"
+                  id="nor-gate"
+                  checked
+                />
+                <span class="check"
+                  ><svg class="check-icon" width="15" height="15">
+                    <use href="./icons.svg#icon-check"></use></svg
+                ></span>
+                <span class="check-text">NOR</span>
+              </label>
+              <label class="lgates-label" for="xor-gate">
+                <input
+                  class="lgates-checkbox visually-hidden"
+                  type="checkbox"
+                  name="logic-gates"
+                  value="xor"
+                  id="xor-gate"
+                  checked
+                />
+                <span class="check"
+                  ><svg class="check-icon" width="15" height="15">
+                    <use href="./icons.svg#icon-check"></use></svg
+                ></span>
+                <span class="check-text">XOR</span>
+              </label>
+            </fieldset>
+            <button class="lcompiler-btn" type="submit">Find solution</button>
+          </form>
+          <div class="output-wrap">
+            <h2>output</h2>
+            <div class="output">
+              <p class="output-text gcount">Gate Count: 4</p>
+              <p class="output-text gexpression">Input (0) --> NAND Gate (0)</p>
+              <p class="output-text gexpression">Input (0) --> NAND Gate (0)</p>
+              <p class="output-text gexpression">Input (0) --> NAND Gate (0)</p>
+              <p class="output-text gexpression">Input (0) --> NAND Gate (0)</p>
+              <p class="output-text gexpression">Input (0) --> NAND Gate (0)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
     <script type="module" src="/main.js"></script>
   </body>
 </html>
