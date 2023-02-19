@@ -12,6 +12,25 @@ body {
   background-color: var(--dark-color);
   color: var(--light-color);
 }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+img {
+  display: block;
+}
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
 .container {
   max-width: 1200px;
   padding: 0 15px;
@@ -33,15 +52,32 @@ body {
   outline: 0;
   outline-offset: 0;
 }
+.link {
+  text-decoration: none;
+  color: inherit;
+}
 
+.header-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header-title {
+  font-size: 24px;
+}
+.logo {
+  display: inline;
+  fill: var(--brand-blue);
+}
 .lcompiler {
+  padding: 25px 0;
 }
-.lcompiler-title {
-}
-.lcompiler-wrap {
+
+.lcompiler .container {
   display: flex;
   gap: 30px;
 }
+
 .lcompiler-form {
   flex-basis: calc((100% - 30px) / 2);
 }
@@ -60,7 +96,7 @@ body {
   font-size: 18px;
   line-height: 111.111111%; /* 20/18 */
   text-align: center;
-  padding: 15px 0;
+  padding: 25px 15px;
   width: 100%;
   margin-bottom: 5px;
   resize: vertical;
@@ -148,4 +184,60 @@ body {
   text-align: justify;
   font-size: 18px;
   line-height: 133.333333%; /* 24/18 */
+}
+.logic-output {
+  font-family: "Oxygen Mono", monospace;
+  font-size: 18px;
+  line-height: 111.111111%; /* 20/18 */
+}
+.input-output-set:nth-child(odd) {
+  background-color: #1e1f21;
+}
+.input-output-set {
+  display: flex;
+}
+.output-wrapper {
+  display: flex;
+  gap: 20px;
+}
+.output-wrapper span {
+  display: block;
+  width: 100px;
+}
+.output-wrapper span.hidden {
+  display: none;
+}
+.input-output-set p:first-child {
+  width: 200px;
+}
+.filter {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.filter-item {
+}
+.filter-btn {
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+  padding: 15px 20px;
+  background-color: var(--brand-blue);
+  color: var(--light-color);
+  cursor: pointer;
+  border: 0;
+  border-radius: 5px;
+}
+.filter-btn:focus,
+.filter-btn:hover {
+  background-color: var(--brand-hover);
+}
+.separator {
+  width: 100%;
+  height: 2px;
+  background-color: var(--light-color);
+  margin-bottom: 10px;
+  margin-top: 5px;
 }

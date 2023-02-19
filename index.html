@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Logic Compiler</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link
       rel="stylesheet"
       href="node_modules/modern-normalize/modern-normalize.css"
@@ -17,11 +21,19 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <header class="header">
+      <div class="container">
+        <a href="./index.html" class="header-logo link">
+          <svg class="logo" width="50" height="50">
+            <use href="./icons.svg#icon-logo"></use>
+          </svg>
+          <h1 class="header-title">Logic Compiler</h1>
+        </a>
+      </div>
+    </header>
     <main>
-      <section class="lcompiler container">
-        <h1 class="lcompiler-title">Logic Compiler</h1>
-
-        <div class="lcompiler-wrap">
+      <section class="lcompiler">
+        <div class="container">
           <form class="lcompiler-form" id="logic-tt">
             <h2>input</h2>
             <label class="tt-label" for="truth-table">Truth table</label>
@@ -144,7 +156,110 @@
           </div>
         </div>
       </section>
+      <section>
+        <div class="container">
+          <h2>Analog truth table</h2>
+          <ul class="filter">
+            <li class="filter-item">
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="*"
+                onclick="filterOperators(event)"
+              >
+                All
+              </button>
+            </li>
+            <li class="filter-item">
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="AND"
+                onclick="filterOperators(event)"
+              >
+                AND
+              </button>
+            </li>
+            <li class="filter-item">
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="OR"
+                onclick="filterOperators(event)"
+              >
+                OR
+              </button>
+            </li>
+            <li class="filter-item">
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="XOR"
+                onclick="filterOperators(event)"
+              >
+                XOR
+              </button>
+            </li>
+            <li class="filter-item">
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="NOT A"
+                onclick="filterOperators(event)"
+              >
+                NOT A
+              </button>
+            </li>
+            <li class="filter-item">
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="NOT B"
+                onclick="filterOperators(event)"
+              >
+                NOT B
+              </button>
+            </li>
+            <li class="filter-item">
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="CMP A"
+                onclick="filterOperators(event)"
+              >
+                CMP A
+              </button>
+            </li>
+            <li class="filter-item">
+              <button
+                class="filter-btn"
+                type="button"
+                data-filter="SUB A"
+                onclick="filterOperators(event)"
+              >
+                SUB A
+              </button>
+            </li>
+          </ul>
+          <ul class="logic-output"></ul>
+        </div>
+      </section>
     </main>
     <script type="module" src="/main.js"></script>
+    <script>
+      function filterOperators(e) {
+        const operators = document.querySelectorAll(".output-wrapper span");
+        let filter = e.target.dataset.filter;
+        if (filter === "*") {
+          operators.forEach((card) => card.classList.remove("hidden"));
+        } else {
+          operators.forEach((card) => {
+            card.dataset.category === filter
+              ? card.classList.remove("hidden")
+              : card.classList.add("hidden");
+          });
+        }
+      }
+    </script>
   </body>
 </html>
