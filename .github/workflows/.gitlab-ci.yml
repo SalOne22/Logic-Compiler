@@ -1,5 +1,11 @@
 image: node:16.5.0
 
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 pages:
   stage: deploy
   cache:
